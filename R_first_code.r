@@ -30,3 +30,25 @@ plot(primates, crabs, col="purple4", pch=19, cex=2)
 #Lets add a title to the graph
 ## input title argument main= 
 plot(primates, crabs, col="purple4", pch=19, cex=2, main="My First Ecological Graph in R")
+
+#Create a DataFrame (table)
+## function is data.frame 
+### then give it a name and run the name to see the table 
+ecoset <- data.frame(primates,crabs)
+ecoset
+
+#Ecological numbers
+## Mean number of individuals per site
+(3+ 5+ 9+ 15+ 40)/5 ## most simple way!
+# =14.4
+
+#Make a summary of the dataframe 
+## Use fucntion summary() for R
+summary(ecoset)
+   primates        crabs    
+ Min.   : 3.0   Min.   :  5  
+ 1st Qu.: 5.0   1st Qu.: 10  
+ Median : 9.0   Median : 30  
+ Mean   :14.4   Mean   : 43  
+ 3rd Qu.:15.0   3rd Qu.: 70  
+ Max.   :40.0   Max.   :100  

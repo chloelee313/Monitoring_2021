@@ -19,7 +19,7 @@ plot(primates, crabs)
 ## add additional argument col=""
 plot(primates, crabs, col="purple4")
 
-#Lets change the simple 
+#Lets change the symbol 
 ## add another argument pch=code of symbol you want 
 plot(primates, crabs, col="purple4", pch=19 )
 

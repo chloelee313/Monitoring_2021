@@ -47,8 +47,36 @@ summary(mease)
 ## how about cadmium on x axis and the zinc in the y 
 
 #Excersise: plot zinc against cadmium 
+## Lets try plot(cadmium,zinc)
+plot(cadmium,zinc)
+##Error in h(simpleError(msg, call)) : 
+  #error in evaluating the argument 'x' in selecting a method for function 'plot': object 'cadmium' not found
 
+#We need to explain to R that cadmium is inclide a data set!
+##   Us $ symbol to link parts of fucntion to a data set
+plot(meuse$cadmium,meuse$zinc)
+#       YAYYY
 
+#lets simplify with the attach function!
+## attach()
+##     R knows that all variables we are using are attached to meuse dataset
+# No long need the $ symbol
+attach(meuse)
+plot(cadmium,zinc)
+
+#Lets see about lead and cadmium 
+plot(cadmium,lead)
+
+## How to impress your supervisor!
+#   We want to see about all the possible relationships wihin the data set
+#      Trivial way - go to excel and plot all the data :/ NO!!
+#      Better way - pairs function 
+# make a scatter plot matrix
+#function pairs()
+pairs(meuse)
+
+#Question!!
+#  Do pairs but pair only the elements parts of the data set!
 
 
 

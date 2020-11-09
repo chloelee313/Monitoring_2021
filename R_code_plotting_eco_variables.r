@@ -77,6 +77,11 @@ pairs(meuse)
 
 #Question!!
 #  Do pairs but pair only the elements parts of the data set!
+### I looked it up, I did pairs funtion still but you can specify which variables you want!
+#      pairs(~x1+x2+x3)
+      # x1, x2, x3 etc are the particular variables SO
+pairs(~cadmium+copper+lead+zinc)
+  
 
 
 

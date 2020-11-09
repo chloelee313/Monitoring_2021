@@ -77,11 +77,21 @@ pairs(meuse)
 
 #Question!!
 #  Do pairs but pair only the elements parts of the data set!
-### I looked it up, I did pairs funtion still but you can specify which variables you want!
+### I looked it up, I did pairs funtion still but you can specify which variables(coloumns) you want!
 #      pairs(~x1+x2+x3)
       # x1, x2, x3 etc are the particular variables SO
-pairs(~cadmium+copper+lead+zinc)
-  
+pairs(~cadmium+copper+lead+zinc) # ~ symbol means "equals" so the whole column
+#this worked for me!
+## to make it better put 
+pairs(~cadmium+copper+lead+zinc,data=meuse,col="purple4",main="pairs plot of selected columns/elements"
+
+#Duccio's answer!
+# want from column 3 to column 6
+pairs(meuse[,3:6]) ## the comma says to start from column 3 and go to column 6
+pairs(meuse[,3:6],col="purple4",pch=19,main="pairs plot of elements") ## this gave a color to the points, the type of point, and the title of the figures
+
+pairs(~cadmium+copper+lead+zinc,data=meuse,col=c("purple4","red","cornflowerblue")) ## this will change the color of each variable
+ ##https://statisticsglobe.com/r-pairs-plot-example/     website for how to do these
 
 
 

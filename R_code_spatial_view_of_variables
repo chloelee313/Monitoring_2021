@@ -1,0 +1,74 @@
+# R spatial algothrithms related to R
+
+#recall sp package in R
+## or to intall the package remember install.packages("sp")
+library(sp)
+
+# Load meuse data set 
+data(meuse)
+head(meuse)
+
+## x and y in data set are the spatial coordinates we need to be using today 
+# coordinates() to tell R we need to make use of coordinates 
+coordinates(meuse)
+
+# remember the "~" symbol groups things together
+  # now group the x and y with the coordinates
+  
+coordiantes(meuse)=~x+y
+#this tells R that we x and y are its coordinates 
+#this allows us to see this data in space
+
+#Lets see one of the elements spread out in space within the data set!
+#  spplot() function alows you do see where the zinc is higher and lower in particular points (x,y) on the plot!
+#       used to plot how elements are spread in space 
+spplot(meuse,"zinc")
+
+#lets add a title 
+spplot(meuse,"zinc",main="Concentration of Zinc in Space")
+
+#Lets try for Copper!
+spplot(meuse,"copper",main="Concentration of Copper in Space")
+
+## tremendous excersise for us!!
+## see copper and zinc together!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

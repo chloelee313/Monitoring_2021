@@ -30,11 +30,23 @@ spplot(meuse,"zinc",main="Concentration of Zinc in Space")
 #Lets try for Copper!
 spplot(meuse,"copper",main="Concentration of Copper in Space")
 
-## tremendous excersise for us!!
+## Tremendous Excersise:
 ## see copper and zinc together!
+#       an array example primates<-c(1,5,10)
+            #same solution for the first lecture 
+spplot(meuse, c("copper","zinc"))
 
+#Lets create a Bubble plot with data (rather than using colors)
+  #dimension of point will change based on amount of the element in the field
+bubble(meuse,"zinc")
 
+# VERY POWERFUL 
 
+#Excersize, do the same for lead
+bubble(meuse,"lead")
+
+#Change the color now!
+bubble(meuse, "lead", col="red")
 
 
 

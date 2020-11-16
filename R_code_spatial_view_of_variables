@@ -49,11 +49,74 @@ bubble(meuse,"lead")
 bubble(meuse, "lead", col="red")
 
 
+##### Installing ggplot2 to library!
+install.packages("ggplot")                  #Dont forget quotations because you need to retreive ggplot outside of R!
+                                              ## Same for color and text
+#If already installed just use library()
 
 
 
 
+#Now lets build a new dataframe!
+     ## biofules vs oxydative enzymes
 
+#Make 2 arrays and then put it into a dataset
+biofuels <- c(120,200,350,570,700)           #rememver to build an array use c() and name in through <-
+oxydative <-c (12000,13000,21000,34000,50000)
+
+#To make these into a dataframe, use the function data.frame()
+        # we want each array to be its out column
+d <- data.frame(biofuels, oxydative)
+## just put d to see the table
+d
+#    biofuels oxydative
+#  1      120      1200
+#  2      200      1300
+#  3      350     21000
+#  4      570     34000
+#  5      700     50000
+
+#lets plot the data
+      # first argument is data, second is aes which states which variables we will use
+ggplot(d, aes (x=biofuels, y=oxydative))
+
+#this only sets the plot, so now we set what the points should be with a function and "+"
+   # So lets plot with ggplot 
+# use funtion geom_points
+
+ggplot(d, aes (x=biofuels, y=oxydative)) + geom_point()
+
+     # lets try changing the color and size 
+     
+ggplot(d, aes (x=biofuels, y=oxydative)) + geom_point(col="red", size=2)
+     
+## Can also make it plot a line!!
+
+ggplot(d, aes (x=biofuels, y=oxydative)) + geom_line()
+
+## Now merge the points with the line!!!
+### Just add geom_line() and geom_point()
+
+ggplot(d, aes (x=biofuels, y=oxydative)) + geom_point(col="red", size= 2) + geom_line(col="Purple4")
+
+               ## WOOWWWWWWWOWOWOWOWWW
+               
+## Try making polygons with geom_polygon
+ggplot(d, aes(x = biofuels, y = oxydative)) + geom_polygon()
+     #higher area of polygon the less linear of a relationship
+     
+     
+############ IMPORT DATA FROM AN EXTERNAL SOURCE!
+
+setwd("path/lab")
+## we want to set the R lab folder into R (so externally import it)
+
+# FOR MAC
+setwd("/Users/Chloelee/Desktop/R_Lab")
+
+# Lets import the covid data that is in the folder 
+   # read.table() function 
+covid <- read.table("covid_agg.csv", header=TRUE)
 
 
 

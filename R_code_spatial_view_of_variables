@@ -116,7 +116,52 @@ setwd("/Users/Chloelee/Desktop/R_Lab")
 
 # Lets import the covid data that is in the folder 
    # read.table() function 
-covid <- read.table("covid_agg.csv", header=TRUE)
+covid <- read.table("covid_agg.csv", header=TRUE)  ### Header means that the table has the name of the variable in the first Row!
+
+head(covid)
+#    cat             country cases       lat        lon
+#  1   1         Afghanistan    21  33.83890  66.026530
+#  2   2             Albania    51  41.14596  20.069178
+#  3   3             Algeria    49  28.16336   2.632366
+#  4   4             Andorra    14  42.54858   1.575688
+#  5   5 Antigua and Barbuda     1  17.28014 -61.791128
+#  6   6           Argentina    56 -35.37667 -65.167485
+
+#  Check out the most used parameters.... mean,max,min,range etc
+summary(covid)
+
+
+
+## ggplot2 of the data!
+     #usually for coodinates, lon is x and lat is y
+    ## if you put names(covid) you can see the names of the variables to set the parameters for ggplot
+
+library(ggplot2)   ## If not already told R that we want to use ggplot2
+
+ggplot(covid, aes (x= lon, y= lat)) + geom_point(col="Purple4")
+
+## each coutnry has 1 point on the plot! You can kind of see the countries in plot! SOOO COOOL!
+
+# NOW lets change the size of the point based on the cases!
+    # can do this in aes argument
+    
+ggplot(covid, aes (x= lon, y= lat, size= cases)) + geom_point(col="Purple4")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

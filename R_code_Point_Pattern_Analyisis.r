@@ -127,11 +127,38 @@ points(covid_planar, pch = 19, cex = 0.25)
 
 
 
+###### Plotting points with different size related to covid data together wiht interpolated data!
+                  # remember if starting R new, set the working directory of R_Lab folder!
+
+library(spatstat)
+library(rdal)
+
+  ## to make use of this package...... should already be installed 
+
+covid <- read.table("covid_agg.csv", header=TRUE)
+#to read the table 
+
+attach(covid) #if you do not attach you should declare variabled every time
+
+covid_planar <- ppp(lon, lat, c(-180,180), c(-90,90))      # First build the point planar Pattern !
+marks(covid_planar) <- cases                               # Then mark the point pattern 
+cases_map <- Smooth(covid_planar)                          # Then make the interpollation points
+
+cl <- colorRampPalette(c('lightpink2', 'lightsalmon', 'tomato1', 'red3', 'maroon'))(100)
+plot(cases_map, col = cl)
+     #now plot some points on the map 
+#install fs package first 
+install.packages("sf")
+
+Spoints <- st_as_sf(covid, coords = c("lon", "lat")) 
+plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 
 
-
-
-
+#### Here is th whole code
+cl <- colorRampPalette(c('lightpink2','lightsalmon','tomato1','red3','maroon'))(100)
+plot(cases_map, col = cl)
+plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
+plot(coastlines, add = TRUE)
 
 
 

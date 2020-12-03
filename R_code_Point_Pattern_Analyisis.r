@@ -161,18 +161,44 @@ plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 plot(coastlines, add = TRUE)
 
 
+##### Leonardo Zabotti data 
+
+setwd("/Users/Chloelee/Desktop/R_Lab')
+ # remember to set the working directory 
+
+#Then import and name the dataset
+
+leo <- read.table("dati_zabotti.csv", header=T, sep=",")
+head(leo)  #can look at the dataset 
+
+        x       y        t       chlh       chls      #x and y is lon and lat
+1 2302884 5027260 20.34755  1.3110573  7.1082322      # chlorophyll content in water
+2 2302119 5031983 20.09945  2.3351714  8.8433274
+3 2310209 5026764 20.25418  0.8779825  3.8966652
+4 2303490 5023558 20.16274  1.2805183  3.1654455
+5 2311296 5026117 20.87947  0.7605694  0.5697923
+6 2309111 5040020 20.60006 13.1885874 15.3955188
 
 
+##NOW lets build the point pattern to make the density and smooth map 
 
+# start with ppp
 
+attach(leo) #to use its column names without labeling $
+library(spatstat)
 
+#need to find minimun x and y so get the summary table
+summary(leo)
 
+leo_ppp <- ppp(x, y, c(2300000,2325000), c(5005000,5045000))
+                      #min,max of x         #min,max of y
 
+plot(leo_ppp)
+density_map <- density(leo_ppp)
+plot(density_map)
+points(leo_ppp)
 
-
-
-
-
+### How to save the whole workspace
 
 
 

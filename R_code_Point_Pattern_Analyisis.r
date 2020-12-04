@@ -202,6 +202,91 @@ points(leo_ppp)
 
 
 
+####### INTERPOLATION OF STUDENT'S DATA
+
+setwed("/Users/Chloelee/Desktop/R_Lab")
+load("point_pattern_analysis")  ###this is uploading a previously saved workspace
+ls()
+
+## ls() gives a list of the files you have named and produced in R
+
+library(spatstat)
+attach(leo)
+
+attach(leo)
+marks(leo_ppp) <- chlh
+chlh_map <- Smooth(leo_ppp)
+plot(chlh_map)
+points(leo_ppp)
+
+#lets change the colorRamp pallete
+cl <- colorRampPalette(c('yellow','orange','red','green'))(100) 
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+#Excersise: Do the same for chls in the sediment
+
+###  this is not necesary again but help         leo_ppp <- ppp(x, y, c(2300000,2325000), c(5005000,5045000))
+marks(leo_ppp) <- chls
+chls_map <- Smooth(leo_ppp)
+plot(chls_map)
+
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+### Now lets the graphs together and make a comparison with the previous map!
+
+#multipanal function!
+
+      #multiframe row with 1 row and 3 columns
+
+par(mfrow = c(1,3)) 
+
+#first graph: Density map
+
+plot(density_map, col=cl)
+points(leo_ppp)
+
+#second map is chlorophyl in the water
+
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+#third map
+
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+
+## Excersise: Build a multipanel with 3 rows and 1 column
+
+par(mfrow = c(3,1)) 
+plot(density_map, col=cl)
+points(leo_ppp)
+plot(chlh_map, col=cl)
+points(leo_ppp)
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

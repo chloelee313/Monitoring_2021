@@ -55,6 +55,8 @@ plot(LSWTaug19, col=cl)
 LSWTsep19 <- crop(sep19, ext)
 plot(LSWTsep19, col=cl)
 
+
+
 ## Next I want to get an "average" temperature for summer in 2002 and in 2019
 # this is a simple arithmetic mean equation for each season 
 

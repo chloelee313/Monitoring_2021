@@ -105,13 +105,25 @@ plot(LSWTsum02, col=cl, main="Avergae LSWT in Summer 2002")
 plot(LSWTsum19, col=cl, main = "Average LWST of Summer 2019")
 plot(LSWTdif, col=cl, main = "LSWT Change from 2002 to 2019")
 
+## Now I want to look at the changes in seasonal variations of Temperature 
 
+# I uploaded 2 more data files and cropped them. Using the month of January from 2003 and 2020
+jan2020 <- raster("c_gls_LSWT_202001210000_GLOBE_SLSTRA_v1.0.2 (1).nc")
+LSWTjan2020 <- crop(jan2020, ext)
 
+jan2003 <- raster("c_gls_LSWT_200301110000_GLOBE_AATSR_v1.0.2.nc")
+LSWTjan2003 <- crop(jan2003, ext)
 
+par(mfrow=c(1,2)) ## to show just the winter values 
+plot(LSWTjan2003, main = "January 2003 LSWT")
+plot(LSWTjan2020, main = "January 2020 LSWT")
 
+sdif2002 <- LSWTjul02 - LSWTjan2003 ## difference between temp of july 2002 and january 2003 
+sdif2019 <- LSWTjul19 - LSWTjan2020 #difference between temp of july 2019 and january 2020
 
-
-
+par(mfrow=c(1,2)) ## to show the seasonal change from different years!
+plot(sdif2002, col=cl, main= "2002 Seasonal Change in LSWT")
+plot(sdif2019, col=cl, main = "2019 Seasonal Change in LSWT")
 
 
 

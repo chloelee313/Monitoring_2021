@@ -29,6 +29,10 @@ jul19 <- raster("c_gls_LSWT_201907010000_GLOBE_SLSTRA_v1.0.2.nc")
 sep19 <- raster("c_gls_LSWT_201909010000_GLOBE_SLSTRA_v1.0.2.nc")
 aug19 <- raster("c_gls_LSWT_201908010000_GLOBE_SLSTRA_v1.0.2.nc")
 
+#For presentation purposed I plotted and saved the jul19 image 
+plot(jul19, main="July 19 2002 Global LSWT")
+
+
 
 ## Next Im going to crop all the data to surround just Toledo Bend Reservoir
 
